@@ -8,7 +8,7 @@ int count_div(int n)
         if (n % i == 0)
         {
             cnt++;
-            if (i != n/i)
+            if (i != n / i)
             {
                 cnt++;
             }
