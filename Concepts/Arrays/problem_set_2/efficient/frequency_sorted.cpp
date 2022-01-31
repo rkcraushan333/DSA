@@ -1,3 +1,5 @@
+// Time complexity O(n)
+// Auxiliary space O(1)
 #include <bits/stdc++.h>
 using namespace std;
 void frequency(int arr[], int n)
