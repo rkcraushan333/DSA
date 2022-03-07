@@ -1,3 +1,4 @@
+// total no is catalan no :-  1,1,2,5,14,42....
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -5,12 +6,12 @@ int i = 0;
 
 void balance(int op, int cl, string s = "")
 {
-    if (op == 0 && cl == 0)
+    if (op == 0 && cl == 0) // or s.size() == n*2
     {
         cout << ++i << s << endl;
         return;
     }
-    if (op >= cl)
+    if (op != 0)
     {
         balance(op - 1, cl, s + "(");
     }
