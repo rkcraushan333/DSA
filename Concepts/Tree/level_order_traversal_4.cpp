@@ -1,4 +1,4 @@
-// print line by line
+// print line by line M-2
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -21,22 +21,20 @@ void print_level(node *root)
         return;
     queue<node *> q;
     q.push(root);
-    q.push(NULL);
-    while (q.size() > 1)
+    while (!q.empty())
     {
-        node *child = q.front();
-        q.pop();
-        if (child == NULL)
+        int i = q.size();
+        while (i--)
         {
-            cout << endl;
-            q.push(NULL);
-            continue;
+            node *child = q.front();
+            q.pop();
+            cout << child->key << " ";
+            if (child->left != NULL)
+                q.push(child->left);
+            if (child->right != NULL)
+                q.push(child->right);
         }
-        cout << child->key << " ";
-        if (child->left != NULL)
-            q.push(child->left);
-        if (child->right != NULL)
-            q.push(child->right);
+        cout << endl;
     }
 }
 
