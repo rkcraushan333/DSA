@@ -13,11 +13,20 @@ struct node
         left = right = NULL;
     }
 };
-int l = 0, r = 0;
+int height(node *root)
+{
+    if (root == NULL)
+        return 0;
+
+    return max(height(root->left), height(root->right)) + 1;
+}
 bool checkBalanced(node *root)
 {
     if (root == NULL)
         return true;
+    int lh = height(root->left);
+    int rh = height(root->right);
+    return (abs(lh - rh) <= 1 && checkBalanced(root->left) && checkBalanced(root->right));
 }
 int main()
 {
