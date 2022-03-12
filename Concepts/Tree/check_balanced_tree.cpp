@@ -1,4 +1,4 @@
-// children sum property
+// check balanced tree  O(n^2)
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -13,16 +13,11 @@ struct node
         left = right = NULL;
     }
 };
-bool childrenSumProperty(node *root)
+int l = 0, r = 0;
+bool checkBalanced(node *root)
 {
-    if ((root->left == NULL && root->right == NULL) || root == NULL)
+    if (root == NULL)
         return true;
-    int sum = 0;
-    if (root->left != NULL)
-        sum += root->left->key;
-    if (root->right != NULL)
-        sum += root->right->key;
-    return (root->key == sum) && (childrenSumProperty(root->left) && childrenSumProperty(root->right));
 }
 int main()
 {
@@ -31,7 +26,7 @@ int main()
     root->right = new node(2);
     root->left->left = new node(3);
     root->left->right = new node(5);
-    if (childrenSumProperty(root))
+    if (checkBalanced(root))
         cout << "Yes";
     else
         cout << "No";
