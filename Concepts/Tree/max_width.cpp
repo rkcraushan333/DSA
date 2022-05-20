@@ -14,13 +14,16 @@ struct node
         left = right = NULL;
     }
 };
-int ans = 0;
 void print_level(node *root)
 {
     if (root == NULL)
+    {
+        cout << 0 << endl;
         return;
+    }
     queue<node *> q;
     q.push(root);
+    int ans = 0;
     while (!q.empty())
     {
         int i = q.size();
@@ -35,6 +38,7 @@ void print_level(node *root)
                 q.push(child->right);
         }
     }
+    cout << ans << endl;
 }
 
 int main()
@@ -48,7 +52,7 @@ int main()
     root->left->right = new node(7);
     root->left->right->left = new node(9);
     root->left->right->right = new node(15);
-    print_level(root);
-    cout << ans << endl;
+    print_level(NULL);
+
     return 0;
 }
