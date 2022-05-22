@@ -1,3 +1,4 @@
+// for a given source and all vertices are accessible using source
 #include <bits/stdc++.h>
 using namespace std;
 
