@@ -1,5 +1,4 @@
 // Time complexity o(n)
-// check balanced tree  O(n^2)
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -14,7 +13,6 @@ struct node
         left = right = NULL;
     }
 };
-
 int checkBalanced(node *root)
 {
     if (root == NULL)
@@ -32,18 +30,14 @@ int checkBalanced(node *root)
 }
 int main()
 {
-    node *root = new node(10);
-    root->left = new node(20);
-    root->right = new node(30);
-    root->right->right = new node(6);
-    root->left->left = new node(8);
-    root->left->right = new node(7);
-    root->left->right->left = new node(9);
-    root->left->right->right = new node(15);
+    node *root = new node(18);
+    // root->left = new node(4);
+    root->right = new node(20);
+    root->right->left = new node(13);
+    root->right->right = new node(70);
     if (checkBalanced(root) == -1)
         cout << "No";
     else
         cout << "Yes";
-    // cout << checkBalanced(root);
     return 0;
 }

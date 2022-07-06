@@ -1,4 +1,4 @@
-// print left recursive approach
+// print left recursive approach (using preorder traversal)
 
 #include <bits/stdc++.h>
 using namespace std;

@@ -8,10 +8,11 @@ struct node
     int key;
     node *left;
     node *right;
-    node(int k)
+    node(int data)
     {
-        key = k;
-        left = right = NULL;
+        key = data;
+        left = NULL;
+        right = NULL;
     }
 };
 
@@ -22,21 +23,22 @@ void print_left(node *root)
     queue<node *> q;
     q.push(root);
     q.push(NULL);
-    cout << q.front()->key << " ";
+    cout << root->key << " ";
     while (q.size() > 1)
     {
-        node *child = q.front();
+        node *t = q.front();
         q.pop();
-        if (child == NULL)
+        if (t == NULL)
         {
+            node *k = q.front();
+            cout << k->key << " ";
             q.push(NULL);
-            cout << q.front()->key << " ";
             continue;
         }
-        if (child->left != NULL)
-            q.push(child->left);
-        if (child->right != NULL)
-            q.push(child->right);
+        if (t->left != NULL)
+            q.push(t->left);
+        if (t->right != NULL)
+            q.push(t->right);
     }
 }
 
@@ -48,7 +50,6 @@ int main()
     root->right->left = new node(70);
     root->right->left->right = new node(8);
     root->right->right = new node(20);
-
     print_left(root);
     return 0;
 }
